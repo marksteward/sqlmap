@@ -104,7 +104,7 @@ optDict = {
 
     "Techniques": {
         "tech": "string",
-        "timeSec": "integer",
+        "timeSec": "float",
         "uCols": "string",
         "uChar": "string",
         "uFrom": "string",

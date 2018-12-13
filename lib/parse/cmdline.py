@@ -318,8 +318,8 @@ def cmdLineParser(argv=None):
         techniques.add_option("--technique", dest="tech",
                               help="SQL injection techniques to use (default \"%s\")" % defaults.tech)
 
-        techniques.add_option("--time-sec", dest="timeSec", type="int",
-                              help="Seconds to delay the DBMS response (default %d)" % defaults.timeSec)
+        techniques.add_option("--time-sec", dest="timeSec", type="float",
+                              help="Seconds to delay the DBMS response (default %s)" % defaults.timeSec)
 
         techniques.add_option("--union-cols", dest="uCols",
                               help="Range of columns to test for UNION query SQL injection")

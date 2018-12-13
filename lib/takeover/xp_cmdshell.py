@@ -92,7 +92,9 @@ class XP_cmdshell:
         inject.goStacked(agent.runAsDBMSUser(cmd))
 
     def _xpCmdshellCheck(self):
-        cmd = "ping -n %d 127.0.0.1" % (conf.timeSec * 2)
+        # I assume * 2 is a lazy way to push the result outside the stddev
+        wholeTimeSec = max(int(conf.timeSec * 2), 1)
+        cmd = "ping -n %d 127.0.0.1" % (wholeTimeSec + 1)
         self.xpCmdshellExecCmd(cmd)
 
         return wasLastResponseDelayed()

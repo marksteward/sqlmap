@@ -1592,7 +1592,7 @@ def _cleanupOptions():
             kb.adjustTimeDelay = ADJUST_TIME_DELAY.DISABLE
 
             warnMsg = "increasing default value for "
-            warnMsg += "option '--time-sec' to %d because " % conf.timeSec
+            warnMsg += "option '--time-sec' to %s because " % conf.timeSec
             warnMsg += "switch '--tor' was provided"
             logger.warn(warnMsg)
     else:
@@ -2421,8 +2421,8 @@ def _basicOptionValidation():
         errMsg = "option '--proxy' is incompatible with switch '--ignore-proxy'"
         raise SqlmapSyntaxException(errMsg)
 
-    if conf.timeSec < 1:
-        errMsg = "value for option '--time-sec' must be a positive integer"
+    if conf.timeSec <= 0:
+        errMsg = "value for option '--time-sec' must be a positive number"
         raise SqlmapSyntaxException(errMsg)
 
     if conf.uChar and not re.match(UNION_CHAR_REGEX, conf.uChar):

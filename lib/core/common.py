@@ -2485,7 +2485,7 @@ def adjustTimeDelay(lastQueryDuration, lowerStdLimit):
     Provides tip for adjusting time delay in time-based data retrieval
     """
 
-    candidate = 1 + int(round(lowerStdLimit))
+    candidate = 1 + round(lowerStdLimit, 1)
 
     if candidate:
         kb.delayCandidates = [candidate] + kb.delayCandidates[:-1]
@@ -2494,7 +2494,7 @@ def adjustTimeDelay(lastQueryDuration, lowerStdLimit):
             conf.timeSec = candidate
 
             infoMsg = "adjusting time delay to "
-            infoMsg += "%d second%s due to good response times" % (conf.timeSec, 's' if conf.timeSec > 1 else '')
+            infoMsg += "%s second%s due to good response times" % (conf.timeSec, 's' if conf.timeSec > 1 else '')
             logger.info(infoMsg)
 
 def getLastRequestHTTPError():
